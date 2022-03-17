@@ -1,0 +1,34 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Datos Bancarios</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css">
+	
+</head>
+
+<body>
+
+	<div th:replace="navegacion :: header"></div>
+	<form th:action="@{/registro/datosBancarios}" method="post">
+	
+		<fieldset>
+			<legend class="negrita">Datos Bancarios</legend>
+			
+			<label for="cuenta">
+			
+				<span class="negrita">Cuenta Corriente</span>
+				
+				<input name="cuenta" type="text" th:value="${cuenta}"/>
+				
+			</label>
+			
+			<input type="submit" value="Paso 4: Resumen">
+			
+		</fieldset>
+	
+	</form>
+
+</body>
+</html>

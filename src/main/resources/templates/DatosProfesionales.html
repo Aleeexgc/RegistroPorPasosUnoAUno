@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Datos Profesionales</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css">
+	
+</head>
+
+<body>
+
+	<div th:replace="navegacion :: header"></div>
+	
+	<form th:action="@{/registro/datosProfesionales}" method="post">
+	
+		<fieldset>
+			<legend class="negrita">Datos Profesionales</legend>
+			
+			<label for="departamento">
+			
+				<span class="negrita">Departamento</span>
+			
+				 <select name="departamento" id="departamento">
+			 	 
+			 		  <th:block th:each="dept: ${departamentos}">
+	    					<option th:value="${dept.value}" th:selected="${dept.key == departamento}"/>
+						<span th:text="${dept.value}"/>
+					</th:block>
+					 
+			  	 </select>
+				
+			</label>
+			
+			<br>
+			
+			<label for="salario">
+			
+				<span class="negrita">Salario</span>
+				<input name="salario" id="salario" type="text" th:value="${salario}"/>
+			
+			</label>
+			
+			<br>
+			
+			<label for="comentarios">
+			
+				<span class="negrita">Comentarios</span>
+				<textarea name="comentarios" id="comentarios" th:text="${comentarios}"></textarea>
+			
+			</label>
+			
+			<br>
+			
+			<input type="submit" value="Paso 3: Datos Bancarios"/>
+			
+		</fieldset>
+	
+	</form>
+
+</body>
+</html>

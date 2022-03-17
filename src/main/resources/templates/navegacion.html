@@ -1,0 +1,16 @@
+
+
+<header>
+
+	<th:block th:each="dato : ${datosNavegacion}">
+
+		<a style="text-decoration: none;" th:href="@{/registro/}+${dato.value[0]}">
+		
+			<img th:src="@{/img/} + ${dato.value[1]}" th:title="${dato.value[2]}" 
+			
+			width="40" height="40" th:style="${!dato.value[2].equals(#httpServletRequest.getServletPath())} ? 'opacity:0.4'" />
+		</a>
+
+	</th:block>
+	
+</header>

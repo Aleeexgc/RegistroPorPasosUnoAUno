@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Resumen</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css">
+
+</head>
+
+<body>
+	<div th:replace="navegacion :: header"></div>
+
+	<form th:action="@{/registro/resumen}" method="post">
+		<fieldset>
+			<legend class="negrita">Datos Personales</legend>
+			
+			<label for="nombre">
+				
+				<span class="negrita rojo">Nombre: </span>
+				<span class="negrita" th:text="${nombre}"/>
+			
+			</label>
+			
+			<label for="apellido">
+				
+				<span class="rojo negrita">Apellido: </span>
+				<span class="negrita" name="apellido" id="apellido" th:text="${apellido}">
+			
+			</label>
+			
+			<br/>
+			
+			<label for="nacimiento">
+			
+				<span class="rojo negrita">Fecha de Nacimiento: </span>
+				<span class="negrita" name="nacimiento" id="nombre" th:text="${nacimiento}">
+			
+			</label>
+			
+			<br>
+			
+			<label for="genero">
+				
+				<span class="rojo negrita">Genero: </span>
+				
+				<span class="negrita" th:text="${genero}"/>
+
+			</label>
+			
+			<br>
+				
+			<label for="nacionalidades">
+			    			  		
+				<span class="rojo negrita">Nacionalidades: </span>
+									  	
+			  	 	<th:block th:each="nac : ${nacionalidades}">
+						<span class="negrita" th:text="${nac}"/>
+					</th:block>
+				  	  				  
+		 	</label>
+						
+		</fieldset>
+				<br>
+	
+		<fieldset>
+			<legend class="negrita">Datos Profesionales</legend>
+			
+			<label for="departamento">
+			
+				<span class="rojo negrita">Departamento: </span>
+			
+				<span class="negrita" th:text="${departamento}"/>
+				
+			</label>
+			
+			<br>
+			
+			<label for="salario">
+			
+				<span class="rojo negrita">Salario: </span>
+				<span class="negrita" name="salario" id="salario"th:text="${salario}">
+			
+			</label>
+			
+			<br>
+			
+			<label for="comentarios">
+			
+				<span class="rojo negrita">Comentarios: </span>
+				<span class="negrita" name="comentarios" id="comentarios" th:text="${salario}"/>
+			
+			</label>
+			
+			<br>
+						
+		</fieldset>
+	
+				<br>
+	
+		
+		<fieldset> 
+			<legend class="negrita">Datos Bancarios: </legend>
+			
+			<label for="cuenta">
+			
+				<span class="rojo negrita">Cuenta Corriente: </span>
+				
+				<span class="negrita" type="text" th:text="${cuenta}"/>
+				
+			</label>
+						
+		</fieldset>
+	
+			<input type="submit" value="Volver al principio">
+
+	
+	</form>
+	 
+	
+	 
+	
+</body>
+</html>

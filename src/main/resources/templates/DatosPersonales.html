@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Datos Personales</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css">
+	
+</head>
+
+<body>
+
+	<div th:replace="navegacion :: header"></div>
+	
+	<form th:action="@{/registro/datosPersonales}" method="post">
+	
+		<fieldset>
+			<legend class="negrita">Datos Personales</legend>
+			
+			<label for="nombre">
+				
+				<span class="negrita">Nombre: </span>
+				<input name="nombre" id="nombre" type="text" th:value="${nombre}"/>
+			
+			</label>
+			
+			<label for="apellido">
+				
+				<span class="negrita">Apellido: </span>
+				<input name="apellido" id="apellido" type="text" th:value="${apellido}"/>
+			
+			</label>
+			
+			<br/>
+			
+			<label for="nacimiento">
+			
+				<span class="negrita">Fecha de Nacimiento: </span>
+				<input name="nacimiento" id="nombre" type="text" th:value="${nacimiento}" placeholder="00/00/0000"/>
+			
+			</label>
+			
+			<br>
+			
+			<label for="genero">
+				
+				<span class="negrita">Genero</span>
+				
+				<th:block th:each="generos: ${listaGenerosOrdenada}">
+		    			<input type="radio" name="genero" th:id="${generos.value}" th:value="${generos.value}" th:checked="${generos.value == genero}"/>
+					<span th:text="${generos.value}"/>
+				</th:block>
+
+			</label>
+			
+			<br>
+			
+			<label for="estado">
+				
+				<span class="negrita">Casado o Pareja de hecho</span>
+				<input type="checkbox" name="estado" id="estado"  th:value="${estado}">
+			
+			</label>
+			
+			<label for="hijos">
+				<span class="negrita">Hijos</span>
+				<input name="hijos" id="hijos" type="checkbox" th:value="${hijos}">
+			</label>
+			
+			<br>
+			
+			<label for="nacionalidades">
+			    			  		
+				<span class="negrita">Nacionalidades</span>
+					
+			  	<select name="nacionalidades" id="nacionalidades" size="5" multiple="multiple">
+				  	
+			  	 	<th:block th:each="nac : ${nacionalidadesLista}">
+		    				<option th:value="${nac.value}" th:selected="${nacionalidades != null} and ${#lists.contains(nacionalidades, nac.value)}"/>
+						<span th:text="${nac.value}"/>
+					</th:block>
+				  	  
+			  	</select>
+				  
+		 	</label>
+			
+			<input type="submit" value="Paso 2: Datos Profesionales">
+			
+		</fieldset>
+	
+	</form>
+
+</body>
+</html>
